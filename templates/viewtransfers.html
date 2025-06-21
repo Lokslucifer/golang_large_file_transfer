@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Transfers - FileTransfer</title>
+    <link rel="stylesheet" href="/static/css/viewtransfers_page_styles.css"/>
+ 
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">📁</div>
+                    <div class="logo-text">FileTransfer</div>
+                </div>
+                <div class="nav-buttons">
+                    <a href="/" class="btn btn-outline">← Back to Upload</a>
+                    <button class="btn btn-danger" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <h1 class="page-title">My Transfers</h1>
+            <p class="page-subtitle">Manage and track all your file transfers</p>
+
+            <!-- Filters -->
+            <div class="filters">
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label class="filter-label">Search</label>
+                        <input type="text" class="filter-input" id="searchInput" placeholder="Search transfers...">
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Status</label>
+                        <select class="filter-input" id="statusFilter">
+                            <option value="">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="expired">Expired</option>
+                            <option value="paused">Paused</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Date Range</label>
+                        <select class="filter-input" id="dateFilter">
+                            <option value="">All Time</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="loading">
+                <div class="spinner"></div>
+                <p>Loading your transfers...</p>
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="empty-state" style="display: none;">
+                <div class="empty-icon">📂</div>
+                <h2 class="empty-title">No transfers found</h2>
+                <p class="empty-description">You haven't created any transfers yet. Start by uploading some files!</p>
+                <a href="/" class="btn btn-primary">Create First Transfer</a>
+            </div>
+
+            <!-- Transfers Grid -->
+            <div id="transfersGrid" class="transfers-grid" style="display: none;"></div>
+        </div>
+    </main>
+
+    <!-- Edit Transfer Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Edit Transfer</h2>
+                <button class="close-btn" onclick="closeEditModal()">&times;</button>
+            </div>
+            <form id="editForm">
+                <div class="form-group">
+                    <label class="form-label">Message</label>
+                    <textarea id="editMessage" class="form-input" rows="3" placeholder="Add a message for recipients..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Expires in</label>
+                    <select id="editExpiry" class="form-input">
+                        <option value="1d">1 Day</option>
+                        <option value="3d">3 Days</option>
+                        <option value="1w">7 Days</option>
+                        <option value="never">Never</option>
+                    </select>
+                </div>
+                <div style="display: flex; gap: 12px; justify-content: flex-end;">
+                    <button type="button" class="btn btn-outline" onclick="closeEditModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+ <script src="/static/js/viewtransfer_page_script.js"></script>
+</body>
+</html>

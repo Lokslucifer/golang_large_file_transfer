@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileTransfer - Shared Files</title>
+     <link rel="stylesheet" href="/static/css/share_page_styles.css" />
+    
+</head>
+<body>
+   
+    <div class="container">
+        <div class="header">
+            <h1>📁 FileTransfer</h1>
+            <p>Secure File Sharing</p>
+        </div>
+
+        <div id="loading-state" class="loading-state">
+            <div class="spinner"></div>
+            <h3>Loading transfer details...</h3>
+            <p>Please wait while we fetch your files</p>
+        </div>
+
+        <div id="error-state" class="error-state" style="display: none;">
+            <div class="error-icon">⚠️</div>
+            <h2 class="error-title">Transfer Not Found</h2>
+            <p class="error-message">This transfer link may have expired or been removed.</p>
+        </div>
+
+        <div id="content-state" class="content" style="display: none;">
+            <div class="transfer-info">
+                <div class="info-item">
+                    <span class="info-label">Status</span>
+                    <span id="status-badge" class="active-badge">Active</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Transfer ID</span>
+                    <span id="transfer-id" class="info-value">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Total Size</span>
+                    <span id="total-size" class="info-value">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Expires</span>
+                    <span id="expires-at" class="info-value">Loading...</span>
+                </div>
+            </div>
+
+            <div id="message-section" class="message-box" style="display: none;">
+                <h3>📝 Message from Sender</h3>
+                <div id="message-content" class="message-content"></div>
+            </div>
+
+            <div class="files-list">
+                <div class="files-header">
+                    <h3>📋 Files</h3>
+                    <span id="files-count" class="total-size">0 files</span>
+                </div>
+                <div id="files-container">
+                    <!-- Files will be loaded here -->
+                </div>
+                
+                <button id="download-all-btn" class="download-all">
+                    <svg class="icon" viewBox="0 0 20 20">
+                        <path d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"/>
+                    </svg>
+                    Download All Files
+                </button>
+            </div>
+        </div>
+    </div>
+
+  <script>
+  const transferId = "{{ .TransferID }}";  // Golang template syntax
+  console.log("Transfer ID:", transferId);
+</script>
+ <script src="/static/js/share_page_script.js"></script>
+
+ 
+</body>
+</html>
