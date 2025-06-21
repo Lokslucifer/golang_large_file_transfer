@@ -9,11 +9,6 @@ const (
 	ValidUserMaxUploadSize = 5 * 1024 * 1024 * 1024 // 5GB max file size (example)
 	NonUserMaxUploadSize=1*1024*1024*1024
 	MaxhoursUploadSessionValid=4
-
-	
-	
-
-
 	//error messages
 	ErrInvalidFileFormat = "Invalid file format"
 
