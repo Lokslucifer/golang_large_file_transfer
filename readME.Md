@@ -1,5 +1,4 @@
-# 🚀 Secure File Sharing System
-![Project Logo]📁
+# 📁 Secure File Sharing System
 
 ## Overview
 
@@ -147,6 +146,7 @@ All protected endpoints are under `/api/auth/transfer` and require the `auth_tok
 
 > _Add screenshots of the login page, upload form, and share/download page here._
 
+![Home Page](docs/screenshot-home-page.png)
 ![Login Page](docs/screenshot-login-page.png)
 ![Signup Page](docs/screenshot-signup-page.png)
 ![Upload Page](docs/screenshot-upload-page.png)
@@ -176,5 +176,5 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contributors & Acknowledgments
 
-- [Your Name](https://github.com/yourusername)
+- [Lokesh](https://github.com/Lokslucifer)
 - Thanks to the Go, Gin, and open-source communities for their libraries and inspiration.
